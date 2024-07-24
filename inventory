@@ -1,0 +1,6 @@
+[all:vars]
+os=panos
+
+[sing_fw]
+sgsing01fw02 ansible_host=10.127.10.12 ansible_python_interpreter=/home/dean/python/bin/python3
+

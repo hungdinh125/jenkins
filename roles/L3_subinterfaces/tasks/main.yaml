@@ -1,0 +1,70 @@
+---
+
+- name: Configure Subinterface Eth1/19.3040 for L4_ENTERPRISE_VN
+  paloaltonetworks.panos.panos_l3_subinterface:
+    provider: '{{ panos }}'
+    name: "ethernet1/19.3040"
+    comment: "L4_ENTERPRISE_VN"
+    tag: 3040
+    netflow_profile: "P_APAC_Netflow_Profile"
+    vr_name: "default"
+    zone_name: "L4_ENTERPRISE_VN"
+    enable_dhcp: false
+    ip: ["10.127.252.42/30"]
+    management_profile: "CORP-MGNT-Profile"
+ 
+- name: Configure Subinterface Eth1/19.3044 for BUILDING_IOT_VN
+  paloaltonetworks.panos.panos_l3_subinterface:
+    provider: '{{ panos }}'
+    name: "ethernet1/19.3044"
+    comment: "BUILDING_IOT_VN"
+    tag: 3044
+    netflow_profile: "P_APAC_Netflow_Profile"
+    vr_name: "default"
+    zone_name: "BUILDING_IOT"
+    enable_dhcp: false
+    ip: ["10.127.252.46/30"]
+    management_profile: "CORP-MGNT-Profile"
+ 
+ 
+- name: Configure Subinterface Eth1/19.3048 for GUEST_VN
+  paloaltonetworks.panos.panos_l3_subinterface:
+    provider: '{{ panos }}'
+    name: "ethernet1/19.3048"
+    comment: "GUEST_VN"
+    tag: 3048
+    netflow_profile: "P_APAC_Netflow_Profile"
+    vr_name: "default"
+    zone_name: "WIRELESS-GUEST"
+    enable_dhcp: false
+    ip: ["10.127.252.50/30"]
+    management_profile: "PING-ONLY-Profile"    
+ 
+- name: Configure Subinterface Eth1/19.3052 for MULTIMEDIA_VN
+  paloaltonetworks.panos.panos_l3_subinterface:
+    provider: '{{ panos }}'
+    name: "ethernet1/19.3052"
+    comment: "MULTIMEDIA_VN"
+    tag: 3052
+    netflow_profile: "P_APAC_Netflow_Profile"
+    vr_name: "default"
+    zone_name: "MULTIMEDIA"
+    enable_dhcp: false
+    ip: ["10.127.252.54/30"]
+    management_profile: "CORP-MGNT-Profile"
+ 
+- name: COnfigure Subinterface Eth1/19.3056 for INFRA_VN
+  paloaltonetworks.panos.panos_l3_subinterface:
+    provider: '{{ panos }}'
+    name: "ethernet1/19.3056"
+    comment: "INFRA_VN"
+    tag: 3056
+    netflow_profile: "P_APAC_Netflow_Profile"
+    vr_name: "default"
+    zone_name: "LAN-CORP"
+    enable_dhcp: false
+    ip: ["10.127.252.58/30"]
+    management_profile: "CORP-MGNT-Profile"
+    
+
+

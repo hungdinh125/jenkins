@@ -1,0 +1,57 @@
+---
+
+- name: Configure BGP peer for L4_ENTERPRISE_VN
+  paloaltonetworks.panos.panos_bgp_peer:
+    provider: '{{ panos }}'
+    peer_group: "SDA_VNs"
+    name: "L4_ENTERPRISE_VN CR1-FW2"
+    enable: true
+    peer_as: "65001"
+    local_interface: "ethernet1/19.3040"
+    local_interface_ip: "10.127.252.42/30"
+    peer_address_ip: "10.127.252.41"
+ 
+- name: Configure BGP peer for BUILDING_IOT_VN
+  paloaltonetworks.panos.panos_bgp_peer:
+    provider: '{{ panos }}'
+    peer_group: "SDA_VNs"
+    name: "BUILDING_IOT_VN CR1-FW2"
+    enable: true
+    peer_as: "65001"
+    local_interface: "ethernet1/19.3044"
+    local_interface_ip: "10.127.252.46/30"
+    peer_address_ip: "10.127.252.45"
+ 
+- name: Configure BGP peer for GUEST_VN
+  paloaltonetworks.panos.panos_bgp_peer:
+    provider: '{{ panos }}'
+    peer_group: "SDA_VNs"
+    name: "GUEST_VN CR1-FW2"
+    enable: true
+    peer_as: "65001"
+    local_interface: "ethernet1/19.3048"
+    local_interface_ip: "10.127.252.50/30"
+    peer_address_ip: "10.127.252.49"
+ 
+- name: Configure BGP peer for MULTIMEDIA_VN
+  paloaltonetworks.panos.panos_bgp_peer:
+    provider: '{{ panos }}'
+    peer_group: "SDA_VNs"
+    name: "MULTIMEDIA_VN CR1-FW2"
+    enable: true
+    peer_as: "65001"
+    local_interface: "ethernet1/19.3052"
+    local_interface_ip: "10.127.252.54/30"
+    peer_address_ip: "10.127.252.53"
+ 
+- name: Configure BGP peer for INFRA_VN
+  paloaltonetworks.panos.panos_bgp_peer:
+    provider: '{{ panos }}'
+    peer_group: "SDA_VNs"
+    name: "INFRA_VN CR1-FW2"
+    enable: true
+    peer_as: "65001"
+    local_interface: "ethernet1/19.3056"
+    local_interface_ip: "10.127.252.58/30"
+    peer_address_ip: "10.127.252.57"
+

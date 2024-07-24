@@ -1,0 +1,10 @@
+---
+
+- name: Configure Peer Group SDA_VNs
+  paloaltonetworks.panos.panos_bgp_peer_group:
+    provider: '{{ panos }}'
+    name: "SDA_VNs"
+    enable: true
+    aggregated_confed_as_path: true
+    soft_reset_with_stored_info: false
+    remove_private_as: true

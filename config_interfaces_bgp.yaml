@@ -1,0 +1,11 @@
+---
+
+- name: Configuring L3_subinterfaces and BGP peering
+  hosts: 'sgsing01fw02'
+  gather_facts: False
+  connection: local
+
+  roles:
+    - L3_subinterfaces
+    - BGP_peer_group
+    - BGP_peers

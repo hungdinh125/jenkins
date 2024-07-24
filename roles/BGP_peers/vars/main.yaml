@@ -1,0 +1,5 @@
+---
+panos:
+  ip_address: '{{ ansible_host }}'
+  username: d.dinh
+  password: T@0khongbiet042024
