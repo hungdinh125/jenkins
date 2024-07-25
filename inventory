@@ -2,5 +2,5 @@
 os=panos
 
 [sing_fw]
-sgsing01fw02 ansible_host=10.127.10.12 ansible_python_interpreter=/usr/bin/python3
+sgsing01fw15 ansible_host=10.127.10.12 ansible_python_interpreter=/usr/bin/python3
 
