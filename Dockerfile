@@ -1,7 +1,7 @@
 FROM alpine:3.11
 
 # Install dependencies, Git, and Rust
-RUN apk add --no-cache ansible ansible-lint git curl \
+RUN apk add --no-cache ansible git curl \
     && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y \
     && source $HOME/.cargo/env
 
@@ -9,7 +9,7 @@ RUN apk add --no-cache ansible ansible-lint git curl \
 ENV PATH="/root/.cargo/bin:${PATH}"
 
 # Install Python packages
-RUN pip3 install --upgrade paramiko
+RUN pip3 install --upgrade paramiko ansible-lint
 
 # Install Ansible collection
 RUN ansible-galaxy collection install cisco.nxos
