@@ -1,7 +1,7 @@
 FROM alpine:3.11
 
 # Install dependencies, Git, and Rust
-RUN apk add --no-cache ansible git curl \
+RUN apk add --no-cache ansible ansible-lint git curl \
     && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y \
     && source $HOME/.cargo/env
 
