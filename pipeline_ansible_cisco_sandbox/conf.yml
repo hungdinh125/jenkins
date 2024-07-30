@@ -1,0 +1,12 @@
+---
+
+# Playbook to create VLANs on Cisco Nexus switch from file
+- name: Configure vlans
+  hosts: all
+  tasks:
+    - name: Provision VLAN
+      cisco.nxos.nxos_vlans:
+        config:
+          - vlan_id: "{{ item }}"
+            state: active
+        with_lines: cat "vlans.txt"

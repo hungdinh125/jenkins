@@ -1,0 +1,19 @@
+---
+
+# Playbook for the verification of VLANs on Cisco Nexus switch
+- name: Verify VLANs
+  hosts: all
+  tasks:
+    - name: Gather vlans facts from the device using nxos_vlans
+      cisco.nxos.nxos_vlans:
+        state: gathered
+      register: vlans
+    
+    - name: Print VLAN information
+      debug: var=vlans.gathered
+      
+    - name: Run show vlan id to see if the vlan is on the port-channel 2
+      cisco.nxos.nxos_command:
+        commands: show vlan id {{ item }}
+        wait_for: result[0] contains Po2
+      with_lines: cat vlans.txt
