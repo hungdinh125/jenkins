@@ -14,8 +14,8 @@
     - name: Print VLAN information
       debug: var=vlans.gathered
 
-    - name: Run show vlan id to see if the vlan is on the port-channel 2
+    - name: Run show vlan id to see if the vlan is active
       cisco.nxos.nxos_command:
         commands: show vlan id {{ item }}
-        wait_for: result[0] contains Po2
-      with_lines: cat vlans.txt
+        wait_for: result[0] contains active
+      with_items: "{{ lookup('file', 'vlans.txt').splitlines() }}"

@@ -11,4 +11,4 @@
         config:
           - vlan_id: "{{ item }}"
             state: active
-        with_lines: cat "vlans.txt"
+      with_items: "{{ lookup('file', 'vlans.txt').splitlines() }}"
