@@ -8,6 +8,11 @@ pipeline {
                      url: 'https://github.com/hungdinh125/jenkins.git')
             }
         }
+        stage('Save running config - DEV') {
+            steps {
+                sh "ansible-playbook save_config.yml -i hosts_dev"
+            }
+        }
         stage('Deploy New Configuration - DEV') {
             steps {
                 sh "ansible-playbook conf.yml -i hosts_dev"
@@ -16,6 +21,11 @@ pipeline {
         stage('Retrieve and validate show commands - DEV') {
             steps {
                 sh "ansible-playbook verify.yml -i hosts_dev"
+            }
+        }
+        stage('Save running config - PROD') {
+            steps {
+                sh "ansible-playbook save_config.yml -i hosts_prod"
             }
         }
         stage('Deploy New Configuration - PROD') {
